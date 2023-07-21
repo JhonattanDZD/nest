@@ -1,0 +1,32 @@
+.familyParticipants__title {
+    display: flex;
+    justify-content: center;
+    font-family:'Happy_Monkey';
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+}
+
+
+.familyParticipants__img {
+    width: 90px;
+    height: 90px;
+}
+
+
+.familyParticipants__card {
+    margin-top: 20px;
+    margin-bottom: 0;
+    font-size: 20px;
+    font-family:'Happy_Monkey';
+    color: #A4A70F;
+}
+
+
+.familyParticipants__age  {
+    margin: 0;
+    padding: 0%;
+    font-size: 14px;
+    font-family:'Happy_Monkey';
+    color: #7c7c7c;
+}
