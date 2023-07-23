@@ -5,18 +5,21 @@ function FamilyParticipants({ family }) {
   // SIMPLE DATA PARA ITERAR INTEGRANTES DE UN GRUPO DE FAMILIA.
   const FernandezFamily = [
     {
+      familyId: 12345,
       id: 1,
       name: "Roberto Fernández",
       image: "https://picsum.photos/200/300",
       baby: false,
     },
     {
+      familyId: 12345,
       id: 2,
       name: "Sandy Mey Zuleta",
       image: "https://picsum.photos/200/300",
       baby: false,
     },
     {
+      familyId: 12345,
       id: 3,
       name: "Alan Luciano",
       age: 22,
@@ -30,7 +33,7 @@ function FamilyParticipants({ family }) {
       <h2 className="familyParticipants__title">{family}</h2>
       {FernandezFamily?.map((member) => {
         return member.baby === true ? (
-          <BabyCard age={member.age} image={member.image} memberName={member.name} key={member.id} />
+          <BabyCard familyId={member.familyId} Id={member.id} age={member.age} image={member.image} memberName={member.name} key={member.id} />
         ) : null;
       })}
     </>

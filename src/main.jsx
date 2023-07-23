@@ -33,26 +33,6 @@ const families = [
 ];
 
 
-const FernandezFamily = [
-  {
-    id: 1,
-    name: 'Roberto Fernández',
-    image: 'https://picsum.photos/200/300',
-    baby: false
-  },
-  {
-    id: 2,
-    name: 'Sandy Mey Zuleta',
-    image: 'https://picsum.photos/200/300',
-    baby: false
-  },
-  {
-    id: 3,
-    name: 'Alan Luciano',
-    image: 'https://picsum.photos/200/300',
-    baby: true
-  }
-]
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>

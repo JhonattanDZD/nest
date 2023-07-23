@@ -9,8 +9,8 @@
 
 
 .familyParticipants__img {
-    width: 90px;
-    height: 90px;
+    width: 95.77px;
+    height: 100px;
 }
 
 
@@ -29,4 +29,21 @@
     font-size: 14px;
     font-family:'Happy_Monkey';
     color: #7c7c7c;
+}
+
+
+.familyParticipants__cardItems {
+    margin-top: 12px;
+}
+
+.babyCard__count {
+    position: absolute;
+    font-family:'Happy_Monkey';
+    margin-left: 1.2rem;
+    border-radius: 100%;
+    background-color: #DB4B4B;
+    padding: 0px 3px 0px 3px;
+    font-size: 12px;
+    font-weight: bold;
+    color: white;
 }
