@@ -6,6 +6,7 @@ import NavBar from "./components/NavBar/NavBar.jsx";
 // import FamilyItem from "./components/FamilyItem/FamilyItem";
 import FamilyList from "./pages/FamilyList/FamilyList";
 import FamilyParticipants from "./pages/FamilyParticipants.jsx/FamilyParticipants";
+import NewFamily from "./pages/NewFamily/NewFamily";
 
 const families = [
   {
@@ -32,14 +33,13 @@ const families = [
   },
 ];
 
-
-
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
     {/* <App /> */}
     {/* <Login /> */}
     <NavBar menuTitle={""} />
     {/* <FamilyList families={families} /> */}
-    <FamilyParticipants family={"FAMILIA FERNÁNDEZ"} />
+    {/* <FamilyParticipants family={"FAMILIA FERNÁNDEZ"} /> */}
+    <NewFamily />
   </React.StrictMode>
 );

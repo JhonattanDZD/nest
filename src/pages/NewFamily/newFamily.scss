@@ -1,0 +1,38 @@
+html,body {
+    height: 100%;
+	margin: 0;
+}
+
+
+.newFamily__title {
+    font-family: 'Happy_Monkey';
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 24px;
+    letter-spacing: 0em;
+    text-align: center;
+}
+
+
+.newFamily__previousBtn {
+    position: absolute;
+    background: transparent;
+    border: none;
+    margin-left: 1rem;
+    cursor: pointer;
+}
+
+.newFamily__textCard {
+    font-family: Inter;
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 19px;
+    letter-spacing: 0em;
+    margin: auto;
+}
+
+.newFamily__container {
+    height: 100vh;
+    margin-top: auto;
+    margin-bottom: auto;
+}
