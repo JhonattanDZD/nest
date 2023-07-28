@@ -9,7 +9,7 @@ const simpleSummaryData = [
     meal: [],
     evacuation: [],
     bathroom: [],
-    snap: ["1:25pm", '5:00pm'],
+    snap: ["1:25pm", "5:00pm"],
     walk: [],
     newSkill: [],
     medication: ["3:35pm"],
@@ -33,7 +33,7 @@ const simpleSummaryData = [
     note: [],
   },
 ];
-function BabyCard({ familyId, Id, memberName, image, age }) {
+function BabyCard_Selected({ familyId, Id, memberName, image, age }) {
   return (
     <>
       {simpleSummaryData?.map((card) => {
@@ -46,37 +46,109 @@ function BabyCard({ familyId, Id, memberName, image, age }) {
             <>
               <Card
                 sx={{
-                  display: "flex",
                   marginX: "0.5rem",
-                  marginY: '1rem',
+                  marginY: "1rem",
                   borderRadius: "12px",
-                  boxShadow: 0
+                  boxShadow: "0px 4px 4px 0px #D9D9D9",
+                  border: "1px solid #FB9825",
                 }}
               >
                 <Box
                   sx={{
                     display: "flex",
-                    flexDirection: "column",
                     padding: "24px",
                   }}
                 >
-                  <img className="familyParticipants__img" src={image} alt="" />
+                  <img
+                    className="familyParticipants__imgSelected"
+                    src={image}
+                    alt=""
+                  />
+                  <Box
+                    sx={{
+                      marginX: "auto",
+                      fontFamily: "Happy_Monkey",
+                      fontSize: "14px",
+                    }}
+                  >
+                    <p className="familyParticipants__card">{memberName}</p>
+                    <p className="familyParticipants__age">{age} Meses</p>
+                    <Box
+                      sx={{
+                        display: "flex",
+                        justifyContent: "space-between",
+                      }}
+                    >
+                      <p>Estado:</p>
+                      <svg
+                        width="39"
+                        height="40"
+                        viewBox="0 0 39 40"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                        xmlnsXlink="http://www.w3.org/1999/xlink"
+                      >
+                        <ellipse
+                          cx="19.4286"
+                          cy="20"
+                          rx="19.4286"
+                          ry="20"
+                          fill="url(#pattern0)"
+                        />
+                        <defs>
+                          <pattern
+                            id="pattern0"
+                            patternContentUnits="objectBoundingBox"
+                            width="1"
+                            height="1"
+                          >
+                            <use
+                              xlinkHref="#image0_366_1526"
+                              transform="matrix(0.00457516 0 0 0.00444444 -0.0147059 0)"
+                            />
+                          </pattern>
+                          <image
+                            id="image0_366_1526"
+                            width="225"
+                            height="225"
+                            xlinkHref="data:image/png;base64,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"
+                          />
+                        </defs>
+                      </svg>
+                    </Box>
+                    <p>
+                      Actividad:{" "}
+                      <span className="familyParticipants__activity">
+                        Jugando
+                      </span>
+                    </p>
+                  </Box>
                 </Box>
                 <div>
-                  <p className="familyParticipants__card">{memberName}</p>
-                  <p className="familyParticipants__age">{age} Meses</p>
                   <Grid
                     className="familyParticipants__cardItems"
                     container
                     columns={{ xs: 5 }}
+                    sx={{
+                      marginBottom: "1rem",
+                    }}
                   >
-                    <Grid sx={{ marginY: "auto", paddingX: "7px", display: 'flex', paddingY: '4px' }} xs={1}>
+                    <Grid
+                      sx={{
+                        marginY: "auto",
+                        paddingX: "7px",
+                        display: "flex",
+                        paddingY: "4px",
+                      }}
+                      xs={1}
+                    >
                       <svg
                         opacity={
                           card.feedingBottle.length == 0 ? "20%" : "100%"
                         }
-                        width="26"
-                        height="25"
+                        className="familyParticipants__iconAction"
+                        width="37"
+                        height="38"
                         viewBox="0 0 26 25"
                         fill="none"
                         xmlns="http://www.w3.org/2000/svg"
@@ -110,15 +182,26 @@ function BabyCard({ familyId, Id, memberName, image, age }) {
                           </clipPath>
                         </defs>
                       </svg>
-                      <p className="babyCard__count">{card.feedingBottle.length > 0 ? card.feedingBottle.length : null}</p>
+                      <p className="babyCard__countSelected">
+                        {card.feedingBottle.length > 0
+                          ? card.feedingBottle.length
+                          : null}
+                      </p>
                     </Grid>
-                    <Grid sx={{ marginY: "auto", paddingX: "7px", display: 'flex', paddingY: '4px' }} xs={1}>
+                    <Grid
+                      sx={{
+                        marginY: "auto",
+                        paddingX: "7px",
+                        display: "flex",
+                        paddingY: "4px",
+                      }}
+                      xs={1}
+                    >
                       <svg
-                      opacity={
-                        card.meal.length == 0 ? "20%" : "100%"
-                      }
-                        width="25"
-                        height="25"
+                        opacity={card.meal.length == 0 ? "20%" : "100%"}
+                        className="familyParticipants__iconAction"
+                        width="37"
+                        height="38"
                         viewBox="0 0 25 25"
                         fill="none"
                         xmlns="http://www.w3.org/2000/svg"
@@ -132,151 +215,94 @@ function BabyCard({ familyId, Id, memberName, image, age }) {
                           fill="#B2C1C0"
                         />
                       </svg>
-                      <p className="babyCard__count">{card.meal.length > 0 ? card.meal.length : null}</p>
+                      <p className="babyCard__countSelected">
+                        {card.meal.length > 0 ? card.meal.length : null}
+                      </p>
                     </Grid>
-                    <Grid sx={{ marginY: "auto", paddingX: "7px", display: 'flex', paddingY: '4px' }} xs={1}>
+                    <Grid
+                      sx={{
+                        marginY: "auto",
+                        paddingX: "7px",
+                        display: "flex",
+                        paddingY: "4px",
+                      }}
+                      xs={1}
+                    >
                       <svg
-                      opacity={
-                        card.evacuation.length == 0 ? "20%" : "100%"
-                      }
-                        width="25"
-                        height="25"
-                        viewBox="0 0 25 25"
+                        opacity={card.evacuation.length == 0 ? "20%" : "100%"}
+                        className="familyParticipants__iconAction"
+                        width="32"
+                        height="34"
+                        viewBox="0 0 30 32"
                         fill="none"
                         xmlns="http://www.w3.org/2000/svg"
                       >
-                        <g clipPath="url(#clip0_125_236)">
+                        <g clipPath="url(#clip0_366_1547)">
                           <path
-                            d="M21.7999 14.6801C22.0177 14.1666 22.1278 13.599 22.1278 12.9883C22.1278 11.3628 21.1488 9.96359 19.2915 8.92657C19.3641 8.65763 19.4004 8.37248 19.4004 8.07494C19.4004 3.75937 13.0603 1.26227 12.7904 1.15794L12.2777 0.960144V1.52377C12.2777 3.42883 10.7139 4.12749 9.05834 4.86716C7.51232 5.558 5.91368 6.27211 5.91368 8.07494C5.91368 8.57123 6.01318 9.02575 6.21032 9.4324C4.20294 10.1463 3.18628 11.3409 3.18628 12.9883C3.18628 13.6986 3.33506 14.3478 3.62911 14.9242C2.1283 15.8169 1.36807 17.0528 1.36807 18.6035C1.36807 24.6094 9.86489 24.6094 12.6571 24.6094C15.4494 24.6094 23.9462 24.6094 23.9462 18.6035C23.9462 17.0784 23.2243 15.76 21.7999 14.6801Z"
-                            fill="#331C03"
+                            d="M17.9919 31.0708C21.1044 30.8836 24.0472 29.3442 26.251 26.7503C28.4547 24.1565 29.7626 20.6928 29.9217 17.0294C26.7581 17.0309 23.7245 18.5108 21.4875 21.1437C19.2506 23.7767 17.9933 27.3473 17.9919 31.0708Z"
+                            fill="#C6C6C6"
                           />
                           <path
-                            d="M12.6571 24.8047C9.81801 24.8047 1.17834 24.8047 1.17834 18.6035C1.17834 17.0338 1.9193 15.7711 3.38102 14.8491C3.12588 14.2868 2.99655 13.662 2.99655 12.9883C2.99655 11.3053 3.99079 10.072 5.95259 9.32009C5.80084 8.93881 5.72395 8.5211 5.72395 8.07497C5.72395 6.14417 7.45488 5.37074 8.98219 4.68829C10.649 3.94366 12.0879 3.30069 12.0879 1.5238V0.678467L12.8569 0.97506C13.1318 1.0813 19.5901 3.62837 19.5901 8.07497C19.5901 8.33514 19.5635 8.58786 19.5108 8.82838C21.3478 9.89363 22.3175 11.3295 22.3175 12.9883C22.3175 13.5693 22.2212 14.1155 22.0315 14.6149C23.4281 15.7166 24.1359 17.0578 24.1359 18.6035C24.1359 24.8047 15.4961 24.8047 12.6571 24.8047ZM12.4674 1.2419V1.5238C12.4674 3.55704 10.7728 4.31406 9.13394 5.0463C7.57513 5.74286 6.10341 6.40051 6.10341 8.07497C6.10341 8.53922 6.19643 8.96647 6.38004 9.34527L6.47658 9.5444L6.27221 9.61707C4.35043 10.3005 3.37601 11.4348 3.37601 12.9883C3.37601 13.665 3.51776 14.2857 3.79717 14.8335L3.88184 14.9994L3.72398 15.0933C2.28672 15.9481 1.55781 17.1292 1.55781 18.6035C1.55781 24.4141 9.91195 24.4141 12.6571 24.4141C15.4023 24.4141 23.7565 24.4141 23.7565 18.6035C23.7565 17.1456 23.0602 15.8783 21.6872 14.8373L21.5653 14.745L21.6261 14.6019C21.8332 14.114 21.9381 13.5712 21.9381 12.9883C21.9381 11.4432 20.9916 10.0981 19.201 9.09827L19.0684 9.02407L19.1088 8.87434C19.1762 8.62372 19.2107 8.35478 19.2107 8.07497C19.2107 3.89597 12.9886 1.44312 12.7237 1.34089L12.4674 1.2419Z"
-                            fill="#3E3A39"
+                            d="M0.117737 17.0294C0.276522 20.6929 1.58437 24.1568 3.78815 26.7507C5.99192 29.3446 8.9349 30.8839 12.0475 31.0708C12.0461 27.3473 10.7888 23.7767 8.55187 21.1437C6.3149 18.5108 3.28129 17.0309 0.117737 17.0294Z"
+                            fill="#C6C6C6"
                           />
                           <path
-                            d="M12.6571 12.9883C12.6571 12.0117 23.5667 12.9883 23.5667 18.6035C23.5667 24.2187 15.3845 24.2187 12.6571 24.2187C9.92973 24.2187 1.74753 24.2187 1.74753 18.6035C1.74753 12.9883 12.6571 13.9648 12.6571 12.9883Z"
-                            fill="url(#paint0_linear_125_236)"
+                            d="M0.100464 16.2736C0.100464 16.5275 0.106058 16.7777 0.116625 17.0286C3.27998 17.0312 6.31318 18.5113 8.55007 21.144C10.787 23.7767 12.0447 27.3468 12.047 31.0701C12.2596 31.0828 12.4732 31.0889 12.6878 31.0884H17.3498C17.5649 31.0884 17.7787 31.0818 17.9913 31.0701C17.9926 27.3465 19.2499 23.7759 21.4869 21.143C23.7239 18.51 26.7575 17.0302 29.921 17.0286C29.9316 16.7777 29.9372 16.5267 29.9372 16.2736V4.88721H0.100464L0.100464 16.2736Z"
+                            fill="#E2E2E2"
                           />
                           <path
-                            d="M12.6571 8.30889C12.6571 7.12888 21.7485 8.30889 21.7485 12.9883C21.7485 17.6676 14.93 17.6676 12.6571 17.6676C10.3843 17.6676 3.5658 17.6676 3.5658 12.9883C3.5658 8.30889 12.6571 9.48891 12.6571 8.30889Z"
-                            fill="url(#paint1_linear_125_236)"
+                            d="M28.5392 0.408142H1.49968C1.12869 0.408142 0.772892 0.581554 0.510505 0.89025C0.248119 1.19895 0.100629 1.61765 0.100464 2.05431L0.100464 4.88792H29.9372V2.05431C29.9372 1.61785 29.7899 1.19925 29.5278 0.890553C29.2656 0.581857 28.91 0.408336 28.5392 0.408142Z"
+                            fill="#59C5EF"
                           />
                           <path
-                            d="M12.6571 1.52386C12.6571 1.52386 19.0211 3.98053 19.0211 8.07497C19.0211 11.3505 14.2481 11.3505 12.6571 11.3505C11.0662 11.3505 6.29321 11.3505 6.29321 8.07497C6.29321 4.79942 12.6571 5.61831 12.6571 1.52386Z"
-                            fill="url(#paint2_linear_125_236)"
+                            d="M8.28941 8.23657H0.100464V13.8372H8.28941C8.92005 13.8368 9.52478 13.5418 9.97071 13.0169C10.4166 12.492 10.6673 11.7803 10.6676 11.038C10.6676 10.2954 10.4171 9.58317 9.97119 9.05786C9.52523 8.53256 8.92033 8.23715 8.28941 8.23657Z"
+                            fill="#59C5EF"
                           />
                           <path
-                            d="M12.6571 1.75781C12.6571 1.75781 15.9775 4.6875 12.6571 6.64062C9.33684 8.59375 7.43951 8.10547 7.43951 7.12891C7.43951 6.15234 8.86251 5.66406 9.81117 5.17578C11.7085 4.19922 12.6571 3.22266 12.6571 1.75781Z"
-                            fill="url(#paint3_linear_125_236)"
+                            d="M19.37 11.038C19.37 11.4058 19.4316 11.7701 19.5512 12.1099C19.6708 12.4498 19.8462 12.7586 20.0672 13.0186C20.2882 13.2787 20.5506 13.485 20.8393 13.6257C21.1281 13.7664 21.4376 13.8388 21.7501 13.8387H29.9372V8.23657H21.7508C21.4381 8.23638 21.1285 8.3087 20.8396 8.44941C20.5508 8.59012 20.2883 8.79645 20.0672 9.05662C19.8461 9.31678 19.6707 9.62568 19.5511 9.96565C19.4315 10.3056 19.3699 10.67 19.37 11.038Z"
+                            fill="#59C5EF"
                           />
                           <path
-                            d="M18.8234 10.0586C18.8234 10.0586 18.3491 11.5234 12.6571 11.5234C6.96518 11.5234 6.49085 10.0586 6.49085 10.0586C6.49085 10.0586 5.54219 10.0586 5.06786 11.0352C4.46788 12.2704 6.01652 13.9648 12.6571 13.9648C19.2978 13.9648 20.8464 12.2704 20.2464 11.0352C19.7721 10.0586 18.8234 10.0586 18.8234 10.0586Z"
-                            fill="url(#paint4_linear_125_236)"
+                            d="M3.8313 8.23804H6.93929V13.8387H3.8313V8.23804Z"
+                            fill="#2BA0BF"
                           />
                           <path
-                            d="M21.1951 15.918C21.1951 15.918 19.2015 18.2267 12.6571 18.2267C6.11282 18.2267 4.11919 15.918 4.11919 15.918C4.11919 15.918 3.02847 16.0252 2.48311 17.148C1.79328 18.5682 5.0221 21.0337 12.6571 21.0337C20.2922 21.0337 23.521 18.5682 22.8312 17.148C22.2858 16.0252 21.1951 15.918 21.1951 15.918Z"
-                            fill="url(#paint5_linear_125_236)"
+                            d="M23.1003 8.23804H26.2082V13.8387H23.1003V8.23804Z"
+                            fill="#2BA0BF"
                           />
                         </g>
                         <defs>
-                          <linearGradient
-                            id="paint0_linear_125_236"
-                            x1="12.6571"
-                            y1="24.2187"
-                            x2="12.6571"
-                            y2="12.6559"
-                            gradientUnits="userSpaceOnUse"
-                          >
-                            <stop stopColor="#926134" />
-                            <stop offset="1" stopColor="#C59D62" />
-                          </linearGradient>
-                          <linearGradient
-                            id="paint1_linear_125_236"
-                            x1="12.6571"
-                            y1="17.6676"
-                            x2="12.6571"
-                            y2="7.88275"
-                            gradientUnits="userSpaceOnUse"
-                          >
-                            <stop stopColor="#926134" />
-                            <stop offset="1" stopColor="#C59D62" />
-                          </linearGradient>
-                          <linearGradient
-                            id="paint2_linear_125_236"
-                            x1="12.6571"
-                            y1="11.3505"
-                            x2="12.6571"
-                            y2="1.52386"
-                            gradientUnits="userSpaceOnUse"
-                          >
-                            <stop stopColor="#926134" />
-                            <stop offset="1" stopColor="#C59D62" />
-                          </linearGradient>
-                          <linearGradient
-                            id="paint3_linear_125_236"
-                            x1="10.7862"
-                            y1="7.9834"
-                            x2="10.7862"
-                            y2="1.75781"
-                            gradientUnits="userSpaceOnUse"
-                          >
-                            <stop stopColor="white" stopOpacity="0.2" />
-                            <stop
-                              offset="1"
-                              stopColor="white"
-                              stopOpacity="0.3"
-                            />
-                          </linearGradient>
-                          <linearGradient
-                            id="paint4_linear_125_236"
-                            x1="12.6571"
-                            y1="13.9648"
-                            x2="12.6571"
-                            y2="10.0586"
-                            gradientUnits="userSpaceOnUse"
-                          >
-                            <stop stopColor="white" stopOpacity="0.1" />
-                            <stop
-                              offset="1"
-                              stopColor="white"
-                              stopOpacity="0.2"
-                            />
-                          </linearGradient>
-                          <linearGradient
-                            id="paint5_linear_125_236"
-                            x1="12.6571"
-                            y1="21.0337"
-                            x2="12.6571"
-                            y2="15.918"
-                            gradientUnits="userSpaceOnUse"
-                          >
-                            <stop stopColor="white" stopOpacity="0.1" />
-                            <stop
-                              offset="1"
-                              stopColor="white"
-                              stopOpacity="0.2"
-                            />
-                          </linearGradient>
-                          <clipPath id="clip0_125_236">
+                          <clipPath id="clip0_366_1547">
                             <rect
-                              width="24.2857"
-                              height="25"
+                              width="29.838"
+                              height="30.6802"
                               fill="white"
-                              transform="translate(0.514282)"
+                              transform="translate(0.100464 0.408142)"
                             />
                           </clipPath>
                         </defs>
                       </svg>
-                      <p className="babyCard__count">{card.evacuation.length > 0 ? card.evacuation.length : null}</p>
+
+                      <p className="babyCard__countSelected">
+                        {card.evacuation.length > 0
+                          ? card.evacuation.length
+                          : null}
+                      </p>
                     </Grid>
-                    <Grid sx={{ marginY: "auto", paddingX: "7px", display: 'flex', paddingY: '4px' }} xs={1}>
+                    <Grid
+                      sx={{
+                        marginY: "auto",
+                        paddingX: "7px",
+                        display: "flex",
+                        paddingY: "4px",
+                      }}
+                      xs={1}
+                    >
                       <svg
-                      opacity={
-                        card.bathroom.length == 0 ? "20%" : "100%"
-                      }
-                        width="25"
-                        height="25"
+                        opacity={card.bathroom.length == 0 ? "20%" : "100%"}
+                        className="familyParticipants__iconAction"
+                        width="37"
+                        height="38"
                         viewBox="0 0 25 25"
                         fill="none"
                         xmlns="http://www.w3.org/2000/svg"
@@ -384,16 +410,24 @@ function BabyCard({ familyId, Id, memberName, image, age }) {
                           </radialGradient>
                         </defs>
                       </svg>
-                      <p className="babyCard__count">{card.bathroom.length > 0 ? card.bathroom.length : null}</p>
-
+                      <p className="babyCard__countSelected">
+                        {card.bathroom.length > 0 ? card.bathroom.length : null}
+                      </p>
                     </Grid>
-                    <Grid sx={{ marginY: "auto", paddingX: "7px", display: 'flex', paddingY: '4px' }} xs={1}>
+                    <Grid
+                      sx={{
+                        marginY: "auto",
+                        paddingX: "7px",
+                        display: "flex",
+                        paddingY: "4px",
+                      }}
+                      xs={1}
+                    >
                       <svg
-                      opacity={
-                        card.snap.length == 0 ? "20%" : "100%"
-                      }
-                        width="25"
-                        height="25"
+                        opacity={card.snap.length == 0 ? "20%" : "100%"}
+                        className="familyParticipants__iconAction"
+                        width="37"
+                        height="38"
                         viewBox="0 0 25 25"
                         fill="none"
                         xmlns="http://www.w3.org/2000/svg"
@@ -456,16 +490,24 @@ function BabyCard({ familyId, Id, memberName, image, age }) {
                           </clipPath>
                         </defs>
                       </svg>
-                      <p className="babyCard__count">{card.snap.length > 0 ? card.snap.length : null}</p>
-
+                      <p className="babyCard__countSelected">
+                        {card.snap.length > 0 ? card.snap.length : null}
+                      </p>
                     </Grid>
-                    <Grid sx={{ marginY: "auto", paddingX: "7px", display: 'flex', paddingY: '4px' }} xs={1}>
+                    <Grid
+                      sx={{
+                        marginY: "auto",
+                        paddingX: "7px",
+                        display: "flex",
+                        paddingY: "4px",
+                      }}
+                      xs={1}
+                    >
                       <svg
-                      opacity={
-                        card.walk.length == 0 ? "20%" : "100%"
-                      }
-                        width="26"
-                        height="25"
+                        opacity={card.walk.length == 0 ? "20%" : "100%"}
+                        className="familyParticipants__iconAction"
+                        width="37"
+                        height="38"
                         viewBox="0 0 26 25"
                         fill="none"
                         xmlns="http://www.w3.org/2000/svg"
@@ -487,16 +529,24 @@ function BabyCard({ familyId, Id, memberName, image, age }) {
                           </clipPath>
                         </defs>
                       </svg>
-                      <p className="babyCard__count">{card.walk.length > 0 ? card.walk.length : null}</p>
-
+                      <p className="babyCard__countSelected">
+                        {card.walk.length > 0 ? card.walk.length : null}
+                      </p>
                     </Grid>
-                    <Grid sx={{ marginY: "auto", paddingX: "7px", display: 'flex', paddingY: '4px' }} xs={1}>
+                    <Grid
+                      sx={{
+                        marginY: "auto",
+                        paddingX: "7px",
+                        display: "flex",
+                        paddingY: "4px",
+                      }}
+                      xs={1}
+                    >
                       <svg
-                      opacity={
-                        card.newSkill.length == 0 ? "20%" : "100%"
-                      }
-                        width="25"
-                        height="25"
+                        opacity={card.newSkill.length == 0 ? "20%" : "100%"}
+                        className="familyParticipants__iconAction"
+                        width="37"
+                        height="38"
                         viewBox="0 0 25 25"
                         fill="none"
                         xmlns="http://www.w3.org/2000/svg"
@@ -570,56 +620,54 @@ function BabyCard({ familyId, Id, memberName, image, age }) {
                           fill="#FED2E1"
                         />
                       </svg>
-                      <p className="babyCard__count">{card.newSkill.length > 0 ? card.newSkill.length : null}</p>
-
+                      <p className="babyCard__countSelected">
+                        {card.newSkill.length > 0 ? card.newSkill.length : null}
+                      </p>
                     </Grid>
-                    <Grid sx={{ marginY: "auto", paddingX: "7px", display: 'flex', paddingY: '4px' }} xs={1}>
+                    <Grid
+                      sx={{
+                        marginY: "auto",
+                        paddingX: "7px",
+                        display: "flex",
+                        paddingY: "4px",
+                      }}
+                      xs={1}
+                    >
                       <svg
-                      opacity={
-                        card.medication.length == 0 ? "20%" : "100%"
-                      }
-                        width="25"
-                        height="25"
-                        viewBox="0 0 25 25"
+                        opacity={card.medication.length == 0 ? "20%" : "100%"}
+                        className="familyParticipants__iconAction"
+                        width="37"
+                        height="38"
+                        viewBox="0 0 39 38"
                         fill="none"
                         xmlns="http://www.w3.org/2000/svg"
                       >
-                        <g clipPath="url(#clip0_125_218)">
-                          <path
-                            d="M14.5658 22.5508C16.725 24.7734 20.2597 24.7734 22.4207 22.5508C24.5799 20.3281 24.5799 16.6895 22.4207 14.4648L16.5846 8.45703L8.72968 16.543L14.5658 22.5508Z"
-                            fill="url(#paint0_radial_125_218)"
-                          />
-                          <path
-                            d="M16.5846 8.45703L10.7484 2.44922C8.58929 0.226562 5.05458 0.226562 2.89353 2.44922C0.734382 4.67188 0.734382 8.31055 2.89353 10.5352L8.72969 16.543L16.5846 8.45703Z"
-                            fill="url(#paint1_radial_125_218)"
-                          />
-                          <path
-                            opacity="0.2"
-                            d="M6.82096 1.36719C8.15667 1.36719 9.40891 1.89844 10.3462 2.86328L22.0185 14.8789C22.9558 15.8438 23.4719 17.1328 23.4719 18.5078C23.4719 19.8828 22.9558 21.1719 22.0185 22.1367C21.0812 23.1016 19.829 23.6328 18.4933 23.6328C17.1576 23.6328 15.9053 23.1016 14.9681 22.1367L3.29574 10.1211C2.35846 9.15625 1.84239 7.86719 1.84239 6.49219C1.84239 5.11719 2.35846 3.82812 3.29574 2.86328C4.23301 1.89844 5.48524 1.36719 6.82096 1.36719ZM6.82096 0.78125C5.39797 0.78125 3.97308 1.33789 2.8935 2.44922C0.734351 4.67188 0.734351 8.31055 2.8935 10.5352L14.5658 22.5508C15.6454 23.6621 17.0703 24.2188 18.4933 24.2188C19.9163 24.2188 21.3412 23.6621 22.4207 22.5508C24.5799 20.3281 24.5799 16.6895 22.4207 14.4648L10.7484 2.44922C9.66884 1.33789 8.24395 0.78125 6.82096 0.78125Z"
-                            fill="#424242"
-                          />
-                          <path
-                            opacity="0.2"
-                            d="M16.9868 8.87201L9.13171 16.9581L8.72923 16.5438L16.5843 8.45769L16.9868 8.87201Z"
-                            fill="#424242"
-                          />
-                          <rect
-                            x="-1.42859"
-                            y="-3"
-                            width="35.9429"
-                            height="39"
-                            fill="white"
-                            fillOpacity="0.7"
-                          />
-                        </g>
+                        <path
+                          d="M22.7621 34.0686C26.1318 37.3455 31.6482 37.3455 35.0208 34.0686C38.3905 30.7916 38.3905 25.4269 35.0208 22.147L25.9126 13.2893L13.6539 25.2109L22.7621 34.0686Z"
+                          fill="url(#paint0_radial_366_1660)"
+                        />
+                        <path
+                          d="M25.9126 13.2893L16.8045 4.43162C13.4348 1.15463 7.9184 1.15463 4.54577 4.43162C1.17611 7.70861 1.17611 13.0733 4.54577 16.3532L13.6539 25.2109L25.9126 13.2893Z"
+                          fill="url(#paint1_radial_366_1660)"
+                        />
+                        <path
+                          opacity="0.2"
+                          d="M10.6751 2.83629C12.7597 2.83629 14.714 3.61955 16.1767 5.04207L34.3931 22.7574C35.8558 24.1799 36.6612 26.0805 36.6612 28.1077C36.6612 30.135 35.8558 32.0355 34.3931 33.458C32.9303 34.8806 30.976 35.6638 28.8914 35.6638C26.8069 35.6638 24.8526 34.8806 23.3898 33.458L5.17351 15.7427C3.71076 14.3202 2.90536 12.4196 2.90536 10.3924C2.90536 8.36514 3.71076 6.4646 5.17351 5.04207C6.63627 3.61955 8.59055 2.83629 10.6751 2.83629ZM10.6751 1.97241C8.45434 1.97241 6.2306 2.7931 4.54577 4.4316C1.17611 7.70859 1.17611 13.0733 4.54577 16.3532L22.7621 34.0685C24.4469 35.707 26.6707 36.5277 28.8914 36.5277C31.1122 36.5277 33.336 35.707 35.0208 34.0685C38.3905 30.7915 38.3905 25.4268 35.0208 22.1469L16.8045 4.4316C15.1196 2.7931 12.8959 1.97241 10.6751 1.97241Z"
+                          fill="#424242"
+                        />
+                        <path
+                          opacity="0.2"
+                          d="M26.5403 13.9011L14.2813 25.8229L13.6532 25.212L25.9121 13.2903L26.5403 13.9011Z"
+                          fill="#424242"
+                        />
                         <defs>
                           <radialGradient
-                            id="paint0_radial_125_218"
+                            id="paint0_radial_366_1660"
                             cx="0"
                             cy="0"
                             r="1"
                             gradientUnits="userSpaceOnUse"
-                            gradientTransform="translate(13.4159 12.6302) rotate(50.1581) scale(13.228 8.70628)"
+                            gradientTransform="translate(20.9675 19.4421) rotate(48.5477) scale(19.9792 13.2634)"
                           >
                             <stop stopColor="#EF5350" />
                             <stop offset="0.6263" stopColor="#D83534" />
@@ -627,38 +675,41 @@ function BabyCard({ familyId, Id, memberName, image, age }) {
                             <stop offset="1" stopColor="#D32F2F" />
                           </radialGradient>
                           <radialGradient
-                            id="paint1_radial_125_218"
+                            id="paint1_radial_366_1660"
                             cx="0"
                             cy="0"
                             r="1"
                             gradientUnits="userSpaceOnUse"
-                            gradientTransform="translate(3.67628 3.06008) rotate(45.8303) scale(12.8898 10.1403)"
+                            gradientTransform="translate(5.76736 5.33225) rotate(44.2012) scale(19.5521 15.3819)"
                           >
                             <stop stopColor="#FFEB3B" />
                             <stop offset="0.349" stopColor="#FEE439" />
                             <stop offset="0.6698" stopColor="#FDD835" />
                             <stop offset="0.9954" stopColor="#FBC02D" />
                           </radialGradient>
-                          <clipPath id="clip0_125_218">
-                            <rect
-                              width="24.2857"
-                              height="25"
-                              fill="white"
-                              transform="translate(0.514282)"
-                            />
-                          </clipPath>
                         </defs>
                       </svg>
-                      <p className="babyCard__count">{card.medication.length > 0 ? card.medication.length : null}</p>
 
+                      <p className="babyCard__countSelected">
+                        {card.medication.length > 0
+                          ? card.medication.length
+                          : null}
+                      </p>
                     </Grid>
-                    <Grid sx={{ marginY: "auto", paddingX: "7px", display: 'flex', paddingY: '4px' }} xs={1}>
+                    <Grid
+                      sx={{
+                        marginY: "auto",
+                        paddingX: "7px",
+                        display: "flex",
+                        paddingY: "4px",
+                      }}
+                      xs={1}
+                    >
                       <svg
-                      opacity={
-                        card.symptom.length == 0 ? "20%" : "100%"
-                      }
-                        width="25"
-                        height="25"
+                        opacity={card.symptom.length == 0 ? "20%" : "100%"}
+                        className="familyParticipants__iconAction"
+                        width="37"
+                        height="38"
                         viewBox="0 0 25 25"
                         fill="none"
                         xmlns="http://www.w3.org/2000/svg"
@@ -704,16 +755,24 @@ function BabyCard({ familyId, Id, memberName, image, age }) {
                           fill="#EF3030"
                         />
                       </svg>
-                      <p className="babyCard__count">{card.symptom.length > 0 ? card.symptom.length : null}</p>
-
+                      <p className="babyCard__countSelected">
+                        {card.symptom.length > 0 ? card.symptom.length : null}
+                      </p>
                     </Grid>
-                    <Grid sx={{ marginY: "auto", paddingX: "7px", display: 'flex', paddingY: '4px' }} xs={1}>
+                    <Grid
+                      sx={{
+                        marginY: "auto",
+                        paddingX: "7px",
+                        display: "flex",
+                        paddingY: "4px",
+                      }}
+                      xs={1}
+                    >
                       <svg
-                      opacity={
-                        card.note.length == 0 ? "20%" : "100%"
-                      }
-                        width="25"
-                        height="25"
+                        opacity={card.note.length == 0 ? "20%" : "100%"}
+                        className="familyParticipants__iconAction"
+                        width="37"
+                        height="38"
                         viewBox="0 0 25 25"
                         fill="none"
                         xmlns="http://www.w3.org/2000/svg"
@@ -795,8 +854,9 @@ function BabyCard({ familyId, Id, memberName, image, age }) {
                           </clipPath>
                         </defs>
                       </svg>
-                      <p className="babyCard__count">{card.note.length > 0 ? card.note.length : null}</p>
-
+                      <p className="babyCard__countSelected">
+                        {card.note.length > 0 ? card.note.length : null}
+                      </p>
                     </Grid>
                   </Grid>
                 </div>
@@ -809,4 +869,4 @@ function BabyCard({ familyId, Id, memberName, image, age }) {
   );
 }
 
-export default BabyCard;
+export default BabyCard_Selected;

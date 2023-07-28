@@ -1,39 +1,17 @@
 import "./FamilyParticipants.scss";
-import BabyCard from "../../components/BabyCard/BabyCard";
+// import BabyCard from "../../components/BabyCard/BabyCard";
+import BabyCard_Selected from "../../components/BabyCard/BabyCard_Selected";
+import {FernandezFamilyData} from '../../data.js'
 
 function FamilyParticipants({ family }) {
   // SIMPLE DATA PARA ITERAR INTEGRANTES DE UN GRUPO DE FAMILIA.
-  const FernandezFamily = [
-    {
-      familyId: 12345,
-      id: 1,
-      name: "Roberto Fernández",
-      image: "https://picsum.photos/200/300",
-      baby: false,
-    },
-    {
-      familyId: 12345,
-      id: 2,
-      name: "Sandy Mey Zuleta",
-      image: "https://picsum.photos/200/300",
-      baby: false,
-    },
-    {
-      familyId: 12345,
-      id: 3,
-      name: "Alan Luciano",
-      age: 22,
-      image: "https://picsum.photos/200/300",
-      baby: true,
-    },
-  ];
-
+  
   return (
     <>
       <h2 className="familyParticipants__title">{family}</h2>
-      {FernandezFamily?.map((member) => {
+      {FernandezFamilyData?.map((member) => {
         return member.baby === true ? (
-          <BabyCard familyId={member.familyId} Id={member.id} age={member.age} image={member.image} memberName={member.name} key={member.id} />
+          <BabyCard_Selected familyId={member.familyId} Id={member.id} age={member.age} image={member.image} memberName={member.name} key={member.id} />
         ) : null;
       })}
     </>
